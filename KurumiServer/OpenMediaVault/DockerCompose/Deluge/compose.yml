@@ -1,0 +1,22 @@
+---
+# Date: 2025-06-01
+# https://hub.docker.com/r/linuxserver/deluge
+services:
+  deluge:
+    image: lscr.io/linuxserver/deluge:latest
+    container_name: deluge
+    environment:
+      - PUID=1000
+      - PGID=100
+      - TZ=Etc/UTC
+      - DELUGE_LOGLEVEL=error #optional
+    volumes:
+      - /srv/dev-disk-by-uuid-0899ed50-f0a8-4718-a7a7-4b7315ae8856/Docker/deluge/config:/config
+      - /srv/dev-disk-by-uuid-0899ed50-f0a8-4718-a7a7-4b7315ae8856/Docker/deluge/watch:/watch
+      - /srv/dev-disk-by-uuid-9ab503d2-ef2a-40ec-89e0-7d78106e9099/Seedbox:/downloads
+    ports:
+      - 8112:8112
+      - 6881:6881
+      - 6881:6881/udp
+      - 58846:58846 #optional
+    restart: unless-stopped

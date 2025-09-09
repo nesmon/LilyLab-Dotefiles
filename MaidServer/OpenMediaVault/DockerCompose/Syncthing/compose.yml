@@ -1,0 +1,14 @@
+services:
+  syncthing:
+    image: lscr.io/linuxserver/syncthing:latest
+    container_name: syncthing
+    hostname: syncthing
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - PUID=1000               
+      - PGID=100                 
+      - TZ=Europe/Paris
+    volumes:
+      - /srv/dev-disk-by-uuid-e98d919a-9fde-4bce-a411-5b2f3be98d2a/Docker/Syncthing/config:/config
+      - /srv/dev-disk-by-uuid-e43b96ab-aadb-41bd-a80b-9749b058395e/MaidStorage/PhoneShare/:/data1
