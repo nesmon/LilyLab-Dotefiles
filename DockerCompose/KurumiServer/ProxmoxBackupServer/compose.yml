@@ -1,0 +1,18 @@
+services:
+  pbs:
+    image: ayufan/proxmox-backup-server:v4.0.12-1
+    container_name: pbs
+    hostname: pbs
+    environment:
+      - TZ=Europe/Paris
+    ports:
+      - "8007:8007"
+      - "8008:8008"
+    tmpfs:
+      - /run
+    volumes:
+      - /srv/dev-disk-by-uuid-0899ed50-f0a8-4718-a7a7-4b7315ae8856/Docker/ProxmoxBackupServer/etc:/etc/proxmox-backup
+      - /srv/dev-disk-by-uuid-0899ed50-f0a8-4718-a7a7-4b7315ae8856/Docker/ProxmoxBackupServer/Backup:/var/lib/proxmox-backup
+      - /srv/dev-disk-by-uuid-0899ed50-f0a8-4718-a7a7-4b7315ae8856/Docker/ProxmoxBackupServer/cache:/var/cache/proxmox-backup
+      - /srv/dev-disk-by-uuid-09697208-6f08-4c30-abd6-2d8bba40f947/ProxmoxBackupServer/Backup:/backup
+    restart: unless-stopped
