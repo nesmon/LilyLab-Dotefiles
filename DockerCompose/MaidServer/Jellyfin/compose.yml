@@ -22,3 +22,4 @@ services:
       - /srv/dev-disk-by-uuid-effb1761-dc30-4ca4-b537-1c32b5f1181a/Book:/mnt/book
       - /srv/dev-disk-by-uuid-3713e184-ae22-42e4-a10c-afc1c6ce93d8/Anime:/mnt/anime
       - /srv/dev-disk-by-uuid-3713e184-ae22-42e4-a10c-afc1c6ce93d8/Drama:/mnt/drama
+      
